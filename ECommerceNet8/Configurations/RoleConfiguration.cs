@@ -16,6 +16,7 @@ namespace ECommerceNet8.Configurations
                     Name = Roles.Administrator,
                     NormalizedName = Roles.Administrator.ToUpper()
                 },
+
                 new IdentityRole
                 {
                     Id = "a0ee1d85-8b89-4ce2-8736-8e8476747129",
