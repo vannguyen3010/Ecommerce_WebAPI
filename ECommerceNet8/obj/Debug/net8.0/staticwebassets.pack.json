@@ -1,0 +1,53 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Dev\\API\\.NET 8\\net8ecommerce-main\\net8ecommerce-main\\ECommerceNet8\\wwwroot\\ImageForPDF\\Logo.png",
+      "PackagePath": "staticwebassets\\ImageForPDF\\Logo.png"
+    },
+    {
+      "Id": "D:\\Dev\\API\\.NET 8\\net8ecommerce-main\\net8ecommerce-main\\ECommerceNet8\\wwwroot\\Images\\ProductId_1\\Image_20.12.2023_352.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductId_1\\Image_20.12.2023_352.jpg"
+    },
+    {
+      "Id": "D:\\Dev\\API\\.NET 8\\net8ecommerce-main\\net8ecommerce-main\\ECommerceNet8\\wwwroot\\PDF\\725a8668-7371-4654-9592-45aa4dbced3d\\IFL782166109\\PDF_12.01.2024_546.pdf",
+      "PackagePath": "staticwebassets\\PDF\\725a8668-7371-4654-9592-45aa4dbced3d\\IFL782166109\\PDF_12.01.2024_546.pdf"
+    },
+    {
+      "Id": "D:\\Dev\\API\\.NET 8\\net8ecommerce-main\\net8ecommerce-main\\ECommerceNet8\\wwwroot\\PDF\\725a8668-7371-4654-9592-45aa4dbced3d\\VQŞ729002349\\PDF_12.01.2024_43.pdf",
+      "PackagePath": "staticwebassets\\PDF\\725a8668-7371-4654-9592-45aa4dbced3d\\VQŞ729002349\\PDF_12.01.2024_43.pdf"
+    },
+    {
+      "Id": "D:\\Dev\\API\\.NET 8\\net8ecommerce-main\\net8ecommerce-main\\ECommerceNet8\\wwwroot\\PDF\\c1fee8d4-ada1-4bb8-9d27-e756aa27fbf9\\CBO501784390\\PDF_8.01.2024_529.pdf",
+      "PackagePath": "staticwebassets\\PDF\\c1fee8d4-ada1-4bb8-9d27-e756aa27fbf9\\CBO501784390\\PDF_8.01.2024_529.pdf"
+    },
+    {
+      "Id": "D:\\Dev\\API\\.NET 8\\net8ecommerce-main\\net8ecommerce-main\\ECommerceNet8\\wwwroot\\PDF\\c1fee8d4-ada1-4bb8-9d27-e756aa27fbf9\\PNG429822983\\PDF_8.01.2024_280.pdf",
+      "PackagePath": "staticwebassets\\PDF\\c1fee8d4-ada1-4bb8-9d27-e756aa27fbf9\\PNG429822983\\PDF_8.01.2024_280.pdf"
+    },
+    {
+      "Id": "D:\\Dev\\API\\.NET 8\\net8ecommerce-main\\net8ecommerce-main\\ECommerceNet8\\wwwroot\\PDF\\c1fee8d4-ada1-4bb8-9d27-e756aa27fbf9\\SXW438957127\\PDF_8.01.2024_103.pdf",
+      "PackagePath": "staticwebassets\\PDF\\c1fee8d4-ada1-4bb8-9d27-e756aa27fbf9\\SXW438957127\\PDF_8.01.2024_103.pdf"
+    },
+    {
+      "Id": "D:\\Dev\\API\\.NET 8\\net8ecommerce-main\\net8ecommerce-main\\ECommerceNet8\\wwwroot\\PDF\\c1fee8d4-ada1-4bb8-9d27-e756aa27fbf9\\ĞEF521600642\\PDF_8.01.2024_111.pdf",
+      "PackagePath": "staticwebassets\\PDF\\c1fee8d4-ada1-4bb8-9d27-e756aa27fbf9\\ĞEF521600642\\PDF_8.01.2024_111.pdf"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ECommerceNet8.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.ECommerceNet8.props",
+      "PackagePath": "build\\ECommerceNet8.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.ECommerceNet8.props",
+      "PackagePath": "buildMultiTargeting\\ECommerceNet8.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.ECommerceNet8.props",
+      "PackagePath": "buildTransitive\\ECommerceNet8.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
