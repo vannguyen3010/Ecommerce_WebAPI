@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceNet8.UI", "EcommerceNet8.UI\EcommerceNet8.UI.csproj", "{93390DC1-1F4C-41D3-9917-27747F225C7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{7DFF4874-0200-4E98-99FB-CB06AE1B147E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DFF4874-0200-4E98-99FB-CB06AE1B147E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DFF4874-0200-4E98-99FB-CB06AE1B147E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93390DC1-1F4C-41D3-9917-27747F225C7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93390DC1-1F4C-41D3-9917-27747F225C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93390DC1-1F4C-41D3-9917-27747F225C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93390DC1-1F4C-41D3-9917-27747F225C7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

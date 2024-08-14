@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\EcommerceNet8.UI.props" />
+</Project>

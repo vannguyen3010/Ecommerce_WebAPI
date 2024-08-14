@@ -1,4 +1,4 @@
-using ECommerceNet8.Configurations;
+ï»¿using ECommerceNet8.Configurations;
 using ECommerceNet8.Data;
 using ECommerceNet8.Models.AuthModels;
 using ECommerceNet8.Repositories.AddressRepository;
@@ -26,7 +26,7 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Servisler aşağıda eklendi
+// Servisler aÃ¾aÃ°Ã½da eklendi
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -43,7 +43,7 @@ builder.Services.AddDefaultIdentity<ApiUser>(options =>
     options.Password.RequiredLength = 8;
 
     options.User.AllowedUserNameCharacters =
-    "abcçdefgğhıijklmnoöprsştuüvyzABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ-._@+!"; //ç, ü , ö gibi özel karakterler eklendi
+    "abcÃ§defgÃ°hÃ½ijklmnoÃ¶prsÃ¾tuÃ¼vyzABCÃ‡DEFGÃHIÃJKLMNOÃ–PRSÃTUÃœVYZ-._@+!"; // ThÃªm kÃ½ tá»± Ä‘áº·c biá»‡t
 
     options.User.RequireUniqueEmail = true;
 }).AddRoles<IdentityRole>()

@@ -36,13 +36,16 @@ namespace ECommerceNet8.Controllers
             _sendGridClient = sendGridClient;
         }
 
+        #region
         [HttpPost]
         [Route("register")]
         public async Task<ActionResult<Response_ApiUserRegisterDto>> Register
-            ([FromBody] Request_ApiUserRegisterDto request_ApiUserRegisterDto)
+          ([FromBody] Request_ApiUserRegisterDto request_ApiUserRegisterDto)
         {
+            // Đăng ký người dùng
             var userDto = await _authRepository.Register(request_ApiUserRegisterDto);
 
+            //Kiểm tra kết quả đăng ký
             if (userDto.isSuccess == false)
             {
                 return BadRequest(new Response_ApiUserRegisterDto()
@@ -52,18 +55,20 @@ namespace ECommerceNet8.Controllers
                 });
             }
 
-            //kullanıcı confirmation kısmı
+            //Phần xác nhận người dùng
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(userDto.apiUser);
 
             var callbackUrl = Request.Scheme + "://" + Request.Host + Url.Action("ConfirmEmail", "Auth", new { userId = userDto.apiUser.Id, code = code });
 
             var body = EmailTemplates.EmailLinkTemplate(callbackUrl);
 
-            //email gönderme
-            var result = await SendEmail(body, "test@gmail.com");
+            //Gửi email
+            //var result = await SendEmail(body, "vovannguyen30102001@gmail.com");
+            var result = await SendEmail(body, userDto.apiUser.Email!);
 
             string EmailMessage = result ? "Đã gửi email" : "Có lỗi xảy ra trong khi gửi email";
 
+            //Phản hồi thành công
             return Ok(new Response_ApiUserRegisterDto()
             {
                 isSuccess = true,
@@ -74,6 +79,8 @@ namespace ECommerceNet8.Controllers
                 }
             });
         }
+        #endregion
+
 
         [HttpPost]
         [Route("registerAdmin/{secretKey}")]
@@ -157,11 +164,13 @@ namespace ECommerceNet8.Controllers
             string email,
             string subject = "Email Verification")
         {
+            //Lấy thông tin người gửi từ cấu hình
             string fromEmail = _configuration.GetSection("SendGridEmailSettings")
                 .GetValue<string>("FromEmail")!;
             string fromName = _configuration.GetSection("SendGridEmailSettings")
                 .GetValue<string>("FromName")!;
 
+            //Tạo đối tượng SendGridMessage
             var msg = new SendGridMessage()
             {
                 From = new EmailAddress(fromEmail, fromName),
@@ -171,7 +180,9 @@ namespace ECommerceNet8.Controllers
 
             var emailToSend = email;
 
-            msg.AddTo("irfnms@gmail.com");
+            msg.AddTo("vovannguyen30102001@gmail.com");
+
+            //Gửi email qua SendGrid
             var response = await _sendGridClient.SendEmailAsync(msg);
 
             return response.IsSuccessStatusCode;
