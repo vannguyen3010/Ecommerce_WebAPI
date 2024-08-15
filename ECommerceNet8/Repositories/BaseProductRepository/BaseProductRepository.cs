@@ -42,9 +42,9 @@ namespace ECommerceNet8.Repositories.BaseProductRepository
                .Include(bp => bp.ImageBases)
                .ToListAsync();
 
-            //DTO'ya dönüştürmece
-            //Ana Dizinde DtoConvertions klasöründe bulunan bu converter BaseProduct kümesinin özelliklerini alıyor ve DTO tipine dönüştürüyor.
-            //daha fazla DTO'ya dönüştürme görmek için aşağı satırlara inebilirsiniz.
+            //Chuyển đổi sang DTO
+            // Bộ chuyển đổi này, nằm trong thư mục DtoConversions trong Thư mục chính, lấy các thuộc tính của bộ BaseProduct và chuyển đổi chúng thành loại DTO.
+            // bạn có thể cuộn xuống để xem thêm chuyển đổi DTO.
             var CustomBaseProduct = baseProducts.ConvertToDtoListCustomProduct();
 
             return CustomBaseProduct;
@@ -96,14 +96,14 @@ namespace ECommerceNet8.Repositories.BaseProductRepository
                     Message = "Belirtilen id ile işleşen ürün bulunamadı"
                 };
             }
-            //DTO'ya dönüştürmece
+            //Chuyển đổi sang DTO
 
             var baseProductCustom = existingBaseProduct.ConvertToDtoCustomProduct();
 
             return new Response_BaseProductWithFullInfo()
             {
                 isSuccess = true,
-                Message = "Ürün listelendi",
+                Message = "Sản phẩm được liệt kê",
                 baseProductCustom = baseProductCustom
             };
         }
@@ -123,7 +123,7 @@ namespace ECommerceNet8.Repositories.BaseProductRepository
                 return baseProductResponse;
             }
 
-            //DTO'ya dönüştürmece
+            //Chuyển đổi sang DTO
             var baseProductWithNoInfo = existingBaseProduct.ConvertToDtoProductNoInfo();
 
             baseProductResponse.isSuccess = true;
@@ -139,8 +139,8 @@ namespace ECommerceNet8.Repositories.BaseProductRepository
             await _db.BaseProducts.AddAsync(baseProductDB);
             await _db.SaveChangesAsync();
 
-            //Bil bakalım burada ne oluyor?
-            //evet bildin, DTO'ya dönüştürmece
+            //Đoán xem chuyện gì đang xảy ra ở đây?
+            // vâng, bạn đoán đúng rồi, chuyển đổi sang DTO
             var baseProductWithNoInfo = baseProductDB.ConvertToDtoProductNoInfo();
 
             return new Response_BaseProduct()
@@ -218,9 +218,9 @@ namespace ECommerceNet8.Repositories.BaseProductRepository
 
             existingBaseProduct.Discount = baseProductDiscount.Discount;
 
-            //Evet burada da Dto'ya çevirmiyoruz. 
-            //total price hesabı yapıyoruz
-            // Yeni yorum satırları için sayfayı aşağı kaydırınız...
+            // Có, chúng tôi cũng không chuyển đổi sang Dto ở đây. 
+            //chúng tôi tính tổng giá
+            // Cuộn xuống trang để xem dòng bình luận mới...
             decimal totalPrice;
             decimal totalPriceDecimal;
 
@@ -243,7 +243,7 @@ namespace ECommerceNet8.Repositories.BaseProductRepository
             return new Response_BaseProduct()
             {
                 isSuccess = true,
-                Message = "Ürün indirimi başarıyla güncellendi",
+                Message = "Cập nhật giảm giá sản phẩm thành công\r\n",
                 baseProducts = new List<Model_BaseProductWithNoExtraInfo>()
                 {
                     baseProductWithNoInfo
@@ -259,16 +259,16 @@ namespace ECommerceNet8.Repositories.BaseProductRepository
                 return new Response_BaseProduct()
                 {
                     isSuccess = false,
-                    Message = "belirtilen id ile eşleşen ürün bulunamadı"
+                    Message = "Không tìm thấy sản phẩm nào phù hợp với id đã chỉ định.\r\n"
                 };
             }
 
             existingBaseProduct.Price = baseProductPrice.Price;
 
             decimal totalPriceCalculated;
-            //Merhaba sevgili okuyucu
-            //burada totalprice yeniden hesaplama işlemi yapıyoruz
-            if(existingBaseProduct.Discount == 0)
+            //Xin chào quý độc giả thân mến
+            // ở đây chúng tôi tính toán lại tổng giá
+            if (existingBaseProduct.Discount == 0)
             {
                 var totalPrice = baseProductPrice.Price;
                 totalPriceCalculated = decimal.Round(totalPrice, 2);
@@ -287,7 +287,7 @@ namespace ECommerceNet8.Repositories.BaseProductRepository
             return new Response_BaseProduct()
             {
                 isSuccess = true,
-                Message = "ürün fiyatı güncellendi",
+                Message = "giá sản phẩm đã cập nhật",
                 baseProducts = new List<Model_BaseProductWithNoExtraInfo>()
                 {
                     baseProductWithNoInfo
@@ -304,7 +304,7 @@ namespace ECommerceNet8.Repositories.BaseProductRepository
                 return new Response_BaseProduct()
                 {
                     isSuccess = false,
-                    Message = "belirtilen id ile eşleşen ürün bulunamadı"
+                    Message = "Không tìm thấy sản phẩm nào phù hợp với id đã chỉ định."
                 };
             }
 
@@ -316,7 +316,7 @@ namespace ECommerceNet8.Repositories.BaseProductRepository
             return new Response_BaseProduct()
             {
                 isSuccess = true,
-                Message = "ürün kategorisi güncellendi",
+                Message = "Danh mục sản phẩm được cập nhật",
                 baseProducts = new List<Model_BaseProductWithNoExtraInfo>
                 {
                     baseProductWithNoInfo
@@ -333,7 +333,7 @@ namespace ECommerceNet8.Repositories.BaseProductRepository
                 return new Response_BaseProduct()
                 {
                     isSuccess = false,
-                    Message = "Belirtilen id ile eşleşen ürün bulunamadı"
+                    Message = "Không tìm thấy sản phẩm nào phù hợp với id đã chỉ định.\r\n"
                 };
             }
 
@@ -345,7 +345,7 @@ namespace ECommerceNet8.Repositories.BaseProductRepository
             return new Response_BaseProduct()
             {
                 isSuccess = true,
-                Message = "Materyal Id Başarıyla güncellendi",
+                Message = "Id vật liệu được cập nhật thành công",
                 baseProducts = new List<Model_BaseProductWithNoExtraInfo>()
                 {
                     baseProductWithNoInfo
@@ -361,7 +361,7 @@ namespace ECommerceNet8.Repositories.BaseProductRepository
                 return new Response_BaseProduct()
                 {
                     isSuccess = false,
-                    Message = "belirtilen id ile eşleşen ürün bulunamadı"
+                    Message = "Không tìm thấy sản phẩm nào phù hợp với id đã chỉ định."
                 };
             }
 
@@ -373,7 +373,7 @@ namespace ECommerceNet8.Repositories.BaseProductRepository
             return new Response_BaseProduct()
             {
                 isSuccess = true,
-                Message = "Ürün başarıyla silindi",
+                Message = "Sản phẩm đã được xóa thành công",
                 baseProducts = new List<Model_BaseProductWithNoExtraInfo>()
                 {
                     baseProductWithNoInfo
@@ -392,18 +392,6 @@ namespace ECommerceNet8.Repositories.BaseProductRepository
                 {
                     searchResult.Add(product.Name);
                 }
-
-                //Merhaba kod dünyasının gezgini,
-                //bizim seninle yeşil yorum satırlarında kesişen yollarımız gibi aşağıdaki satırlarda da searchtext'in description ile kesiştiği yerlere değindim
-                 //Bu satırları yazan ben, sana sadece bir yazılım parçası bırakmıyorum.Aynı zamanda bir deneyim ve düşünsel bir serüven bırakıyorum.
-                 //Önceki yazılımcının yaklaşımı ilham verici olabilir, ancak senin bakış açınla daha da geliştirilebilir.
-                //Bana katıl, kodun sadece bir mekanizma değil, aynı zamanda bir konuşma aracı olduğunu düşün.
-                //Yorum satırları, bu diyalogun en önemli parçalarıdır. Belki de bu kodu yazarken benimle konuştuğunu hissedeceksin.
-                //İşte tam olarak bu yüzden bu satırları yazıyorum.
-                //Kodun her bir parçasını dikkatlice incele, çünkü burada sadece bir çözüm değil, aynı zamanda bir düşünce süreci bulacaksın.
-                //Belki de benim düşündüğüm gibi bir çözüm yoluna gitmeye karar vereceksin.Belki de bu kodu, kendi projelerin için bir temel olarak kullanacaksın.
-                //Ve şimdi, bu kodun ötesinde bir diyaloğa başla.Bu yorum satırları, geçmişteki bir yazılımcının sana seslenişidir.
-                //Belki de senin yorum satırların, bir sonraki yazılımcıya ışık tutacak.
 
                 if(product.Description != null)
                 {
@@ -443,8 +431,6 @@ namespace ECommerceNet8.Repositories.BaseProductRepository
             return baseProductCustomReturn;
         }
 
-
-
         public async Task<Response_BaseProductWithPaging> GetProductSearchWithPaging(string searchText, int pageNumber, int pageSize)
         {
             float numberpp = (float)pageSize;
@@ -476,8 +462,6 @@ namespace ECommerceNet8.Repositories.BaseProductRepository
             };
 
         }
-
-
 
         public async Task<IEnumerable<Model_BaseProductCustom>> SearchProducts(int[] MaterialsIds, int[] mainCategoryIds, int[] productColorIds, int[] productSizeIds)
         {
@@ -511,7 +495,7 @@ namespace ECommerceNet8.Repositories.BaseProductRepository
             return baseProductCustom;
         }
 
-        //PRİVATE FUNCTİONLAR
+        //CHỨC NĂNG RIÊNG TƯ
         private async Task<IEnumerable<BaseProduct>> FindProductBySearchText(string searchText)
         {
             return await _db.BaseProducts.Where(bp=>bp.Name.ToLower().Contains(searchText.ToLower())||bp.Description.ToLower().Contains(searchText.ToLower())).ToListAsync();

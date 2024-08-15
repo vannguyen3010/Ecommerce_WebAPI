@@ -28,8 +28,34 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.UseEndpoints(endpoints =>
+{
+    #region Home
+    endpoints.MapControllerRoute(
+       name: "default",
+       pattern: "{controller=Home}/{action=Index}/{id?}");
+    #endregion
+
+    #region Product
+    endpoints.MapControllerRoute(
+        name: "product",
+        pattern: "san-pham",
+        defaults: new { controller = "Products", action = "Index" });
+    #endregion
+
+    #region Introduce
+    endpoints.MapControllerRoute(
+       name: "introduce",
+       pattern: "gioi-thieu",
+       defaults: new { controller = "Introduce", action = "Index" });
+    #endregion
+
+    #region Contact
+    endpoints.MapControllerRoute(
+       name: "contact",
+       pattern: "lien-he",
+       defaults: new { controller = "Contact", action = "Index" });
+    #endregion
+});
 
 app.Run();

@@ -6461,6 +6461,14 @@
       "PackagePath": "staticwebassets\\assets\\video\\memory-of-a-woman.mp4"
     },
     {
+      "Id": "D:\\Dev\\.NET\\WebAPI\\Cá nhân\\net8ecommerce-main\\net8ecommerce-main\\EcommerceNet8.UI\\wwwroot\\controller\\all_page.css",
+      "PackagePath": "staticwebassets\\controller\\all_page.css"
+    },
+    {
+      "Id": "D:\\Dev\\.NET\\WebAPI\\Cá nhân\\net8ecommerce-main\\net8ecommerce-main\\EcommerceNet8.UI\\wwwroot\\controller\\home.css",
+      "PackagePath": "staticwebassets\\controller\\home.css"
+    },
+    {
       "Id": "D:\\Dev\\.NET\\WebAPI\\Cá nhân\\net8ecommerce-main\\net8ecommerce-main\\EcommerceNet8.UI\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
