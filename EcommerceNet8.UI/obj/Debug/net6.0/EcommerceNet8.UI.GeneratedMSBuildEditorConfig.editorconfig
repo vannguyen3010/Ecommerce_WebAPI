@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = D:\Dev\.NET\WebAPI\Cá nhân\net8ecommerce-main\net8ecommerce-main\EcommerceNet8.UI
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Dev/.NET/WebAPI/Cá nhân/net8ecommerce-main/net8ecommerce-main/EcommerceNet8.UI/Views/Contact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Dev/.NET/WebAPI/Cá nhân/net8ecommerce-main/net8ecommerce-main/EcommerceNet8.UI/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -46,8 +50,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQX1Byb2R1Y3RQb3B1bGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dev/.NET/WebAPI/Cá nhân/net8ecommerce-main/net8ecommerce-main/EcommerceNet8.UI/Views/Home/P_Responsive.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQX1Jlc3BvbnNpdmUuY3NodG1s
+[D:/Dev/.NET/WebAPI/Cá nhân/net8ecommerce-main/net8ecommerce-main/EcommerceNet8.UI/Views/Introduce/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50cm9kdWNlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Dev/.NET/WebAPI/Cá nhân/net8ecommerce-main/net8ecommerce-main/EcommerceNet8.UI/Views/Products/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Dev/.NET/WebAPI/Cá nhân/net8ecommerce-main/net8ecommerce-main/EcommerceNet8.UI/Views/Shared/_P_Footer.cshtml]
@@ -56,6 +64,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Dev/.NET/WebAPI/Cá nhân/net8ecommerce-main/net8ecommerce-main/EcommerceNet8.UI/Views/Shared/_P_Header.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QX0hlYWRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Dev/.NET/WebAPI/Cá nhân/net8ecommerce-main/net8ecommerce-main/EcommerceNet8.UI/Views/Shared/_P_Responsive.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QX1Jlc3BvbnNpdmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Dev/.NET/WebAPI/Cá nhân/net8ecommerce-main/net8ecommerce-main/EcommerceNet8.UI/Views/Shared/_P_Scripts.cshtml]
