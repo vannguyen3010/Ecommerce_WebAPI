@@ -38,7 +38,7 @@ namespace ECommerceNet8.Repositories.AuthRepository
 
             var result = await _userManager.CreateAsync(user, userDto.Password);
 
-            if(result.Succeeded)
+            if (result.Succeeded)
             {
                 await _userManager.AddToRoleAsync(user, Roles.Customer);
 
@@ -65,17 +65,17 @@ namespace ECommerceNet8.Repositories.AuthRepository
 
         public async Task<Response_ApiUserRegisterDto> RegisterAdmin(Request_ApiUserRegisterDto userDto, int secretKey)
         {
-            if(secretKey != 12345)
+            if (secretKey != 12345)
             {
                 return new Response_ApiUserRegisterDto()
                 {
                     isSuccess = false,
                     Message = new List<string>()
                 {
-                    "secret key yanlış"
+                    "Khóa bí mật"
                 }
                 };
-               
+
             }
             var user = new ApiUser()
             {
@@ -117,7 +117,7 @@ namespace ECommerceNet8.Repositories.AuthRepository
         {
             bool isValidUser = false;
             var user = await _userManager.FindByEmailAsync(login.Email);
-            if(user == null)
+            if (user == null)
             {
                 return new Response_LoginDto()
                 {
@@ -129,7 +129,7 @@ namespace ECommerceNet8.Repositories.AuthRepository
                 };
             }
 
-            if(user.EmailConfirmed == false)
+            if (user.EmailConfirmed == false)
             {
                 return new Response_LoginDto()
                 {
@@ -142,7 +142,7 @@ namespace ECommerceNet8.Repositories.AuthRepository
             }
 
             bool isPasswordValid = await _userManager.CheckPasswordAsync(user, login.Password);
-            if(!isPasswordValid)
+            if (!isPasswordValid)
             {
                 return new Response_LoginDto()
                 {
@@ -172,7 +172,7 @@ namespace ECommerceNet8.Repositories.AuthRepository
             var tokenContent = jwtSecurityTokenHandler.ReadJwtToken(tokenDto.Token);
 
             var tokenIssuer = tokenContent.Issuer;
-            if(tokenIssuer != _configuration["JwtSettings:Issuer"])
+            if (tokenIssuer != _configuration["JwtSettings:Issuer"])
             {
                 return new Response_LoginDto()
                 {
@@ -201,7 +201,7 @@ namespace ECommerceNet8.Repositories.AuthRepository
             .FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Sub)?.Value;
 
             var user = await _userManager.FindByNameAsync(username);
-            if(user == null || user.Id != tokenDto.UserId)
+            if (user == null || user.Id != tokenDto.UserId)
             {
                 return new Response_LoginDto()
                 {
@@ -216,7 +216,7 @@ namespace ECommerceNet8.Repositories.AuthRepository
             // REFRESH TOKEN VALIDATIONS
             var refreshTokenFromDb = await _dbContext.RefreshTokens
                 .FirstOrDefaultAsync(rf => rf.Token == tokenDto.RefreshToken);
-            if(refreshTokenFromDb == null)
+            if (refreshTokenFromDb == null)
             {
                 return new Response_LoginDto()
                 {
@@ -228,7 +228,7 @@ namespace ECommerceNet8.Repositories.AuthRepository
                 };
             }
 
-            if(refreshTokenFromDb.JwtId != tokenContent.Id)
+            if (refreshTokenFromDb.JwtId != tokenContent.Id)
             {
                 return new Response_LoginDto()
                 {
@@ -240,7 +240,7 @@ namespace ECommerceNet8.Repositories.AuthRepository
                 };
             }
 
-            if(refreshTokenFromDb.ExpireDate < DateTime.UtcNow)
+            if (refreshTokenFromDb.ExpireDate < DateTime.UtcNow)
             {
                 return new Response_LoginDto()
                 {
@@ -269,7 +269,7 @@ namespace ECommerceNet8.Repositories.AuthRepository
         {
             var refreshToken = await _dbContext.RefreshTokens
                 .FirstOrDefaultAsync(rt => rt.UserId == userId);
-            if(refreshToken == null)
+            if (refreshToken == null)
             {
                 return true;
             }
@@ -327,23 +327,23 @@ namespace ECommerceNet8.Repositories.AuthRepository
                 _dbContext.RefreshTokens.Remove(existingRefreshToken);
                 await _dbContext.SaveChangesAsync();
             }
-                var jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
-                var tokenContent = jwtSecurityTokenHandler.ReadJwtToken(token);
+            var jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
+            var tokenContent = jwtSecurityTokenHandler.ReadJwtToken(token);
 
-                var refreshToken = new RefreshToken()
-                {
-                    JwtId = tokenContent.Id,
-                    Token = RandomStringGeneration(23),
-                    AddedDate = DateTime.UtcNow,
-                    ExpireDate = DateTime.UtcNow.AddMinutes(110),
-                    UserId = user.Id,
-                };
+            var refreshToken = new RefreshToken()
+            {
+                JwtId = tokenContent.Id,
+                Token = RandomStringGeneration(23),
+                AddedDate = DateTime.UtcNow,
+                ExpireDate = DateTime.UtcNow.AddMinutes(110),
+                UserId = user.Id,
+            };
 
-                await _dbContext.RefreshTokens.AddAsync(refreshToken);
-                await _dbContext.SaveChangesAsync();
+            await _dbContext.RefreshTokens.AddAsync(refreshToken);
+            await _dbContext.SaveChangesAsync();
 
-                return refreshToken.Token;
-         }
+            return refreshToken.Token;
+        }
         private string RandomStringGeneration(int length)
         {
             var random = new Random();
@@ -353,6 +353,6 @@ namespace ECommerceNet8.Repositories.AuthRepository
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
-     
+
     }
-  }
+}
